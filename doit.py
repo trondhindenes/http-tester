@@ -3,7 +3,8 @@ import typer
 from rich.console import Console
 from datetime import datetime
 from time import sleep
-
+import sys
+import signal
 
 
 console = Console()
@@ -13,8 +14,15 @@ FAILURE_COUNT=0
 s = requests.Session()
 
 
+
+
+def sigterm_handler(_signo, _stack_frame):
+    # Raises SystemExit(0):
+    sys.exit(0)
+
 def main(url: str, wait_secs: float = 1.0):
     global FAILURE_COUNT
+    signal.signal(signal.SIGTERM, sigterm_handler)
     while True:
         response = None
         now = datetime.utcnow()
