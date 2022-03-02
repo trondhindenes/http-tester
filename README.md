@@ -13,3 +13,10 @@ Specify a url and optionally a wait time between each test. Http-tester will pin
 2022-03-02 08:49:47.540901 status code was 200 failure count: 0
 2022-03-02 08:49:48.171477 status code was 200 failure count: 0
 ```
+
+
+## How to build:
+```
+docker build -t trondhindenes/http-tester:latest . &&
+docker push trondhindenes/http-tester:latest
+```

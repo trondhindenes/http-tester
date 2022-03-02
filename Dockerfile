@@ -1,4 +1,4 @@
-FROM python:3.9 AS parent
+FROM python:3.9-slim-buster AS parent
 WORKDIR /app
 RUN pip install pipenv
 COPY Pipfile /app/
